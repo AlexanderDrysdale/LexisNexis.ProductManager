@@ -5,6 +5,12 @@ Built with ASP.NET Core (.NET 6) and Angular, it demonstrates how to implement a
 
 ---
 
+# Debugging tips
+
+Sometimes the UI starts up quicker than the API, this requires a refresh on the main page for it to work as usual.
+
+---
+
 ## Overview
 
 Product Manager provides a robust foundation for building and extending product‑driven applications.  
