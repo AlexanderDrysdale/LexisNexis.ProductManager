@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "LexisNexis.ProductManager.API\\LexisNexis.ProductManager.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "LexisNexis.ProductManager.UI\\LexisNexis.ProductManager.UI.esproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

@@ -1,0 +1,27 @@
+using Microsoft.EntityFrameworkCore;
+using LexisNexis.ProductManager.Contracts.Data.Entities;
+
+namespace LexisNexis.ProductManager.Migrations
+{
+    public class DatabaseContext : DbContext
+    {
+        public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
+        {
+            ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+        }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            foreach (var item in ChangeTracker.Entries<BaseEntity>().AsEnumerable())
+            {
+                item.Entity.AddedOn = DateTime.Now;
+            }
+
+            return base.SaveChangesAsync(cancellationToken);
+        }
+
+        public DbSet<Ninja> Ninjas { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
+    }
+}

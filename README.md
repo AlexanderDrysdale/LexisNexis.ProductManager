@@ -15,6 +15,7 @@ CQRS stands for Command Query Responsibility Segregation. It is an Architectural
 * MediatR for .NET 6
 * Fluent Validation for .NET 6
 * SQLite
+* Angular - bootstrap and rxjs
 
 # About the Boilerplate
 
@@ -27,7 +28,7 @@ This boilerplate is a perfect starter for developers looking to implement CQRS. 
 3. Preconfigured Entity Framework Core migrations with SQLite
 4. Segregated Commands and Queries with their Handlers
 5. [Fluent Validation](https://referbruv.com/blog/posts/implementing-fluent-validation-in-aspnet-core-%28net-5%29-mvc) on the input model within the Command classes
-6. Preconfigured Swagger UI
+6. Configured Swagger UI
 
 # Getting Started
 
@@ -35,21 +36,16 @@ To get started, follow the below steps:
 
 1. Install .NET 6 SDK
 2. Clone the Solution into your Local Directory
-3. Navigate to the CqrsNinja.API directory
+3. Set UI and API as start up projects
 4. Run the solution
 
-Read the complete article to learn more:
+# db migration
+in package manager console default project: migrations run the following commands:
 
-[Implementing CQRS using Mediator in ASP.NET Core](https://referbruv.com/blog/posts/implementing-cqrs-using-mediator-in-aspnet-core-explained)
+Add-Migration CreateProductsTable -StartupProject LexisNexis.ProductManager.API
+Update-Database
 
-# Issues or Ideas?
 
-If you face any issues or would like to drop a suggestion, ![raise an issue](https://github.com/referbruv/CqrsNinja/issues/new/choose)
+# Generating client for angular
 
-# Show your Support 
-
-Leave a Star if you find the solution useful. If you find the article helpful, support me by:
-
-<a href="https://www.buymeacoffee.com/referbruv" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
-
-For more detailed articles and how-to guides, visit https://referbruv.com
+Run in api project: npx nswag openapi2tsclient /input:https://localhost:5001/swagger/v1/swagger.json /output:src/app/services/api-client.ts /template:Angular /injectionTokenType:InjectionToken /nullValue:Undefined 
