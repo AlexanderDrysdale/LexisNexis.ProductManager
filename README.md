@@ -1,61 +1,58 @@
-# Product Manager - ASP.NET Core CQRS Boilerplate
+# Product Manager - ASP.NET Core & Angular
 
-**Product Manager** is a boilerplate solution designed to demonstrate the implementation of Command Query Responsibility Segregation (CQRS) in ASP.NET Core (.NET 6) using MediatR.  
-It provides a clean, extensible architecture for building modern applications with clear separation of concerns.
-
----
-
-## What is CQRS?
-
-**CQRS (Command Query Responsibility Segregation)** is an architectural design pattern that separates read operations (queries) from write operations (commands).  
-By splitting responsibilities, CQRS enables:
-- Clear separation of concerns
-- Improved scalability
-- Easier maintenance and testing
-- Flexibility in handling complex business logic
+**Product Manager** is a complete solution for managing products, categories, and related business workflows.  
+Built with ASP.NET Core (.NET 6) and Angular, it demonstrates how to implement a clean CQRS architecture while delivering a fully functional product management system.
 
 ---
 
-## Technologies Used
+## Overview
 
-- **ASP.NET Core (.NET 6)**
-- **Entity Framework Core (EF Core 6)**
-- **MediatR** for request/response handling
-- **FluentValidation** for input validation
-- **SQLite** for persistence
-- **Angular** with Bootstrap and RxJS for the frontend
+Product Manager provides a robust foundation for building and extending product‑driven applications.  
+It includes APIs, persistence, validation, and a modern Angular frontend for managing products and categories end‑to‑end.
 
 ---
 
-## About the Boilerplate
+## Key Features
 
-This solution is ideal for developers who want to:
-- Quickly start with a CQRS‑based architecture
-- Learn and understand CQRS concepts in practice
-- Build scalable applications with clean separation between commands and queries
+- **Full Product Management**  
+  Create, update, list, and delete products with attributes such as name, description, SKU, price, quantity, and category.
 
-The codebase is intentionally kept simple and approachable, making it suitable for both beginners and experienced developers.
+- **Category Management**  
+  Organize products into categories with hierarchical support (parent/child relationships). Categories can be displayed as a tree in the Angular UI.
+
+- **CQRS Architecture**  
+  Commands and queries are separated with MediatR, ensuring clear separation of concerns and scalability.
+
+- **Validation**  
+  FluentValidation enforces business rules and input constraints at the command level.
+
+- **Persistence**  
+  Entity Framework Core with SQLite (or InMemory for testing) provides reliable data storage.
+
+- **Angular Frontend**  
+  A responsive UI built with Angular, Bootstrap, and RxJS for product and category management.
+
+- **API Documentation**  
+  Swagger UI is preconfigured for exploring and testing endpoints.
 
 ---
 
-## Features
+## Technologies
 
-1. **Clean Architecture** with well‑defined layers for API, Core, Contracts, Persistence, and Migrations
-2. **Unit of Work** pattern with a Generic Repository implementation  
-   [Learn more](https://referbruv.com/blog/posts/understanding-and-implementing-unitofwork-pattern-in-aspnet-core)
-3. Preconfigured **EF Core migrations** with SQLite
-4. Segregated **Commands and Queries** with their respective handlers
-5. **FluentValidation** integrated into command classes for robust input validation  
-   [Reference](https://referbruv.com/blog/posts/implementing-fluent-validation-in-aspnet-core-%28net-5%29-mvc)
-6. **Swagger UI** configured for API exploration and testing
+- ASP.NET Core (.NET 6)
+- Entity Framework Core (EF Core 6)
+- MediatR
+- FluentValidation
+- SQLite / EF InMemory
+- Angular (Bootstrap + RxJS)
 
 ---
 
 ## Getting Started
 
 1. Install the **.NET 6 SDK**
-2. Clone the repository to your local machine
-3. Set both **UI** and **API** projects as startup projects
+2. Clone the repository
+3. Set **UI** and **API** projects as startup projects
 4. Run the solution
 
 ---

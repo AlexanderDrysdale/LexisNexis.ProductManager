@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Net;
-using System.Threading.Tasks;
 using LexisNexis.ProductManager.Contracts.DTO;
 using LexisNexis.ProductManager.Core.Exceptions;
 using LexisNexis.ProductManager.Core.Handlers.Commands;
@@ -10,6 +6,11 @@ using LexisNexis.ProductManager.Providers.Handlers.Commands;
 using LexisNexis.ProductManager.Providers.Handlers.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections;
+using System.Collections.Generic;
+using System.Net;
+using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace LexisNexis.ProductManager.Controllers
 {
@@ -69,6 +70,7 @@ namespace LexisNexis.ProductManager.Controllers
         }
 
         // POST /api/categories
+        // custom serializer
         [HttpPost]
         [ProducesResponseType(typeof(int), (int)HttpStatusCode.Created)]
         [ProducesErrorResponseType(typeof(BaseResponseDTO))]
@@ -78,15 +80,30 @@ namespace LexisNexis.ProductManager.Controllers
             {
                 var command = new CreateCategoryCommand(model);
                 var response = await _mediator.Send(command);
-                return StatusCode((int)HttpStatusCode.Created, response);
+
+                // Explicit serialization with System.Text.Json
+                var json = JsonSerializer.Serialize(response, new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    WriteIndented = true,
+                    DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
+                });
+
+                return Content(json, "application/json");
             }
             catch (InvalidRequestBodyException ex)
             {
-                return BadRequest(new BaseResponseDTO
+                var errorJson = JsonSerializer.Serialize(new BaseResponseDTO
                 {
                     IsSuccess = false,
                     Errors = ex.Errors
+                }, new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    WriteIndented = true
                 });
+
+                return BadRequest(errorJson);
             }
         }
     }
