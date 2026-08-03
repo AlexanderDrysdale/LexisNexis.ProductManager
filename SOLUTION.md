@@ -21,7 +21,7 @@ The design emphasizes clean separation of concerns, scalability, and developer p
 - **Trade‑off**: More layers mean more upfront structure, but they enforce boundaries and reduce coupling.
 
 ### Unit of Work + Repository Pattern
-- **Decision**: A UnitOfWork aggregates repositories (`Products`, `Categories`, `Ninjas`).
+- **Decision**: A UnitOfWork aggregates repositories (`Products`, `Categories`).
 - **Rationale**: Provides a single entry point for persistence operations, aligns with DDD principles, and simplifies transaction management.
 - **Trade‑off**: Slightly redundant with EF Core’s DbContext, but improves testability and abstraction.
 
