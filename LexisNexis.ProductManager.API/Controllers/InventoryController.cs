@@ -12,11 +12,11 @@ namespace LexisNexis.ProductManager.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class InventoryController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public ProductController(IMediator mediator)
+        public InventoryController(IMediator mediator)
         {
             _mediator = mediator;
         }

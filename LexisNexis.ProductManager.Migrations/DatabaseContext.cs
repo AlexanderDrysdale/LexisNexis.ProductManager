@@ -20,7 +20,6 @@ namespace LexisNexis.ProductManager.Migrations
             return base.SaveChangesAsync(cancellationToken);
         }
 
-        public DbSet<Ninja> Ninjas { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
     }

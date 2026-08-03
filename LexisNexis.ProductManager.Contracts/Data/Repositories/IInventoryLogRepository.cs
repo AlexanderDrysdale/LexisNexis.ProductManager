@@ -2,5 +2,5 @@
 
 namespace LexisNexis.ProductManager.Contracts.Data.Repositories
 {
-    public interface INinjaRepository : IRepository<Ninja> { }
+    public interface IInventoryLogRepository : IRepository<InventoryLog> { }
 }

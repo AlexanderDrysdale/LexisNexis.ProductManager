@@ -13,9 +13,9 @@ namespace LexisNexis.ProductManager.Core.Data
         {
             _context = context;
         }
-        public INinjaRepository Ninjas => new NinjaRepository(_context);
         public IProductRepository Products => new ProductRepository(_context);
         public ICategoryRepository Categories => new CategoryRepository(_context);
+        public IInventoryLogRepository InventoryLogs => new InventorylogRepository(_context);
 
         public async Task CommitAsync()
         {

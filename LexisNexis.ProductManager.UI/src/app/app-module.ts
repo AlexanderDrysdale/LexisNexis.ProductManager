@@ -12,7 +12,11 @@ import { API_BASE_URL, Client } from './services/api-client';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoadingOverlay } from './components/loading-overlay/loading-overlay';
 import { Navbar } from './components/navbar/navbar';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
+// import { CategoryManagement } from './components/category-management/category-management';
+// import { MatTreeModule } from '@angular/material/tree';
+// import { MatIconModule } from '@angular/material/icon';
+// import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -23,12 +27,16 @@ import { FormsModule } from '@angular/forms';
     SearchBox,
     LoadingOverlay,
     Navbar,
+    // CategoryManagement,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatProgressSpinnerModule,
-    FormsModule
+    FormsModule,
+    // MatTreeModule,
+    // MatIconModule,
+    // MatButtonModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),

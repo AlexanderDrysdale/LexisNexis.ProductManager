@@ -2,8 +2,6 @@ using LexisNexis.ProductManager.Contracts.DTO;
 using LexisNexis.ProductManager.Core.Exceptions;
 using LexisNexis.ProductManager.Core.Handlers.Commands;
 using LexisNexis.ProductManager.Core.Handlers.Queries;
-using LexisNexis.ProductManager.Providers.Handlers.Commands;
-using LexisNexis.ProductManager.Providers.Handlers.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections;
