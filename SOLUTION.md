@@ -67,4 +67,4 @@ Product Manager balances **clarity, scalability, and developer experience**.
 The chosen design patterns (CQRS, Clean Architecture, UnitOfWork) introduce some overhead but provide a strong foundation for extending the system.  
 SQLite and InMemory offer flexibility across environments, while Angular ensures a modern, maintainable frontend.  
 
-This solution is not just a boilerplate — it is a **full product management system** ready for real‑world scenarios, with deliberate trade‑offs to maximize maintainability and extensibility.
+This solution is **full product management system** ready for real‑world scenarios, with deliberate trade‑offs to maximize maintainability and extensibility.
