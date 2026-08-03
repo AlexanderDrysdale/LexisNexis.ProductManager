@@ -1,51 +1,69 @@
-![banner](assets/banner.png?raw=true)
+# Product Manager - ASP.NET Core CQRS Boilerplate
 
-# CQRS Ninja - ASP.NET Core Boilerplate
+**Product Manager** is a boilerplate solution designed to demonstrate the implementation of Command Query Responsibility Segregation (CQRS) in ASP.NET Core (.NET 6) using MediatR.  
+It provides a clean, extensible architecture for building modern applications with clear separation of concerns.
 
-CQRS Ninja is a boilerplate solution, built to demonstrate implementing Command Query Responsibility Segregation - CQRS in ASP.NET Core (.NET 6) via MediatR.
+---
 
-# What is CQRS?
+## What is CQRS?
 
-CQRS stands for Command Query Responsibility Segregation. It is an Architectural Design Pattern that advocates segregating or grouping the methods based on how they impact the data and design them separately according to their requirements. CQRS helps segregate functionalities into two different models - Commands and Queries, there by creating a clear separation of concerns for each functionality.
+**CQRS (Command Query Responsibility Segregation)** is an architectural design pattern that separates read operations (queries) from write operations (commands).  
+By splitting responsibilities, CQRS enables:
+- Clear separation of concerns
+- Improved scalability
+- Easier maintenance and testing
+- Flexibility in handling complex business logic
 
-# Technologies
+---
 
-* ASP.NET Core (.NET 6)
-* Entity Framework Core (EFCore 6)
-* MediatR for .NET 6
-* Fluent Validation for .NET 6
-* SQLite
-* Angular - bootstrap and rxjs
+## Technologies Used
 
-# About the Boilerplate
+- **ASP.NET Core (.NET 6)**
+- **Entity Framework Core (EF Core 6)**
+- **MediatR** for request/response handling
+- **FluentValidation** for input validation
+- **SQLite** for persistence
+- **Angular** with Bootstrap and RxJS for the frontend
 
-This boilerplate is a perfect starter for developers looking to implement CQRS. It also helps beginners better understand the concept of CQRS and how its implemented, while keeping the code simple.
+---
 
-# What do you get?
+## About the Boilerplate
 
-1. Clean Architecture with well-defined layers for API, Persistence, Core, Contracts and Migrations
-2. Implemented [UnitOfWork](https://referbruv.com/blog/posts/understanding-and-implementing-unitofwork-pattern-in-aspnet-core) with Generic Repository
-3. Preconfigured Entity Framework Core migrations with SQLite
-4. Segregated Commands and Queries with their Handlers
-5. [Fluent Validation](https://referbruv.com/blog/posts/implementing-fluent-validation-in-aspnet-core-%28net-5%29-mvc) on the input model within the Command classes
-6. Configured Swagger UI
+This solution is ideal for developers who want to:
+- Quickly start with a CQRS‑based architecture
+- Learn and understand CQRS concepts in practice
+- Build scalable applications with clean separation between commands and queries
 
-# Getting Started
+The codebase is intentionally kept simple and approachable, making it suitable for both beginners and experienced developers.
 
-To get started, follow the below steps:
+---
 
-1. Install .NET 6 SDK
-2. Clone the Solution into your Local Directory
-3. Set UI and API as start up projects
+## Features
+
+1. **Clean Architecture** with well‑defined layers for API, Core, Contracts, Persistence, and Migrations
+2. **Unit of Work** pattern with a Generic Repository implementation  
+   [Learn more](https://referbruv.com/blog/posts/understanding-and-implementing-unitofwork-pattern-in-aspnet-core)
+3. Preconfigured **EF Core migrations** with SQLite
+4. Segregated **Commands and Queries** with their respective handlers
+5. **FluentValidation** integrated into command classes for robust input validation  
+   [Reference](https://referbruv.com/blog/posts/implementing-fluent-validation-in-aspnet-core-%28net-5%29-mvc)
+6. **Swagger UI** configured for API exploration and testing
+
+---
+
+## Getting Started
+
+1. Install the **.NET 6 SDK**
+2. Clone the repository to your local machine
+3. Set both **UI** and **API** projects as startup projects
 4. Run the solution
 
-# db migration
-in package manager console default project: migrations run the following commands:
+---
 
+## Database Migrations
+
+Run the following commands in the Package Manager Console (with `Migrations` as the default project):
+
+```powershell
 Add-Migration CreateProductsTable -StartupProject LexisNexis.ProductManager.API
 Update-Database
-
-
-# Generating client for angular
-
-Run in api project: npx nswag openapi2tsclient /input:https://localhost:5001/swagger/v1/swagger.json /output:src/app/services/api-client.ts /template:Angular /injectionTokenType:InjectionToken /nullValue:Undefined 
